@@ -15,6 +15,8 @@ namespace GlimseCrafts.Website.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.test = "Hello bye";
+            //ViewData["test"] = "Hello bye";
             return View();
         }
 

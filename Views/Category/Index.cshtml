@@ -5,23 +5,29 @@
 
 <h1>Index of category</h1>
 
-<table class="table table-bordered table-striped" style="width:100%">
+<div class="row my-4 px-3">
+    <a asp-Action="Create" class="btn btn-primary d-inline-block w-auto">Create</a>
+</div>
+<table class="table table-bordered table-striped w-100">
     <thead>
         <tr>
-            <th>
-                Id
-                </th>
-            <th>
-                Name
-            </th>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Created)</th>
+            <th>Details</th>
         </tr>
     </thead>
     <tbody>
         @foreach(var obj in Model)
         {
             <tr>
-                <td width="50%">@obj.Id</td>
-                <td width="50%">@obj.Name</td>
+                <td>@Html.DisplayFor(modelItem => obj.Id)</td>
+                <td>@Html.DisplayFor(modelItem => obj.Name)</td>
+                <td>@Html.DisplayFor(modelItem => obj.Created)</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@obj.Id" >Details</a>
+                    <a asp-action="Delete" asp-route-id="@obj.Id" >Delete</a>
+                    </td>
             </tr>
         }
     </tbody>
