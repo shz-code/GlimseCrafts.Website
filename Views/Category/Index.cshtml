@@ -26,7 +26,7 @@
                 <td>@Html.DisplayFor(modelItem => obj.Created)</td>
                 <td>
                     <a asp-action="Details" asp-route-id="@obj.Id" >Details</a>
-                    <a asp-action="Delete" asp-route-id="@obj.Id" >Delete</a>
+                    <a asp-action="Delete" asp-route-id="@obj.Id" class="d-inline-block ms-2">Delete</a>
                     </td>
             </tr>
         }

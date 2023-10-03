@@ -9,7 +9,7 @@ namespace GlimseCrafts.Website.Models
         [Key]
         [DisplayName("Serial")]
         public int Id { get; set; }
-        [Required]
+        [Required, MaxLength(10, ErrorMessage = "Maximum Characters Exited")]
         public string? Name { get; set; }
         public string? Description { get; set; }
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
