@@ -8,27 +8,37 @@
 <div class="row my-4 px-3">
     <a asp-Action="Create" class="btn btn-primary d-inline-block w-auto">Create</a>
 </div>
-<table class="table table-bordered table-striped w-100">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Id)</th>
-            <th>@Html.DisplayNameFor(model => model.Name)</th>
-            <th>@Html.DisplayNameFor(model => model.Created)</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var obj in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => obj.Id)</td>
-                <td>@Html.DisplayFor(modelItem => obj.Name)</td>
-                <td>@Html.DisplayFor(modelItem => obj.Created)</td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@obj.Id" >Details</a>
-                    <a asp-action="Delete" asp-route-id="@obj.Id" class="d-inline-block ms-2">Delete</a>
-                    </td>
+
+    @if (Model.Any())
+    {
+    <table class="table table-bordered table-striped table-hover w-100">
+        <thead>
+            <tr class="table-dark">
+                <th>@Html.DisplayNameFor(model => model.Id)</th>
+                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                <th>@Html.DisplayNameFor(model => model.Description)</th>
+                <th>@Html.DisplayNameFor(model => model.Created)</th>
+                <th>Details</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr class="table-light">
+                    <td>@Html.DisplayFor(modelItem => obj.Id)</td>
+                    <td>@Html.DisplayFor(modelItem => obj.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => obj.Description)</td>
+                    <td>@Html.DisplayFor(modelItem => obj.Created)</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@obj.Id">Details</a>
+                        <a asp-action="Delete" asp-route-id="@obj.Id" class="d-inline-block ms-2">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    }
+    else
+    {
+        <p class="bg-danger text-light px-4 py-3 fw-bold">No Records Found</p>
+    }
